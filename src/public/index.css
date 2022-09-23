@@ -1,0 +1,32 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-color: #264653;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    border-radius: 5px;
+    border: solid 1px #F4A261;
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: inherit;
+    margin-bottom: 1rem;
+    outline: none;
+    transition: ease 0.2s;
+}
+
+input:focus {
+    border: solid 1px #E9C46A;
+}
