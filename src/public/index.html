@@ -1,11 +1,40 @@
 <html>
-  <head>
-    <title>Shorter</title>
-    <link rel="stylesheet" href="/index.css" />
-    <script src="/index.js"></script>
-  </head>
-  <body>
-    <input type="text" id="input" placeholder="URL" />
-    <a id="link"></a>
-  </body>
+    <head>
+        <title>Shorter</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./index.css" />
+        <script src="./index.js"></script>
+    </head>
+    <body>
+        <div class="input">
+            <input type="text" id="input" placeholder="URL" />
+            <span class="spinner"></span>
+            <button class="copy">
+                <svg
+                    viewBox="0 0 267 282"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <rect
+                        x="10"
+                        y="10"
+                        width="194"
+                        height="214"
+                        rx="20"
+                        stroke="#264653"
+                        stroke-width="20"
+                    />
+                    <rect
+                        x="63"
+                        y="58"
+                        width="194"
+                        height="214"
+                        rx="20"
+                        stroke="#264653"
+                        stroke-width="20"
+                    />
+                </svg>
+            </button>
+        </div>
+    </body>
 </html>

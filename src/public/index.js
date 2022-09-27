@@ -1,34 +1,47 @@
 window.onload = () => {
-  const input = document.querySelector("#input");
-  const link = document.querySelector("#link");
-  let timer = null;
-  const debounce = (fn) => () => {
-    if (timer) clearTimeout(timer);
+    const input = document.querySelector('#input')
+    const copy = document.querySelector('.copy')
+    let shortUrl
 
-    timer = setTimeout(() => {
-      fn();
-      timer = null;
-    }, 1000);
-  };
+    let timer = null
+    const debounce = (fn) => () => {
+        if (timer) clearTimeout(timer)
 
-  const handleChange = () => {
-    const url = input.value;
-    if (!url) return;
-    if (!input.classList.contains("loading")) input.classList.add("loading");
-    fetch("/", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ url }),
-    })
-      .then((res) => res.text())
-      .then((id) => {
-        input.classList.remove("loading");
-        const href = `${window.location.origin}/${id}`;
-        link.href = link.innerHTML = href;
-      });
-  };
+        timer = setTimeout(() => {
+            fn()
+            timer = null
+        }, 1000)
+    }
 
-  input.addEventListener("input", debounce(handleChange));
-};
+    const handleChange = () => {
+        const url = input.value
+        if (!url) return
+        if (!input.classList.contains('loading')) input.classList.add('loading')
+        fetch('/', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ url, stripQueryParams: false }),
+        })
+            .then((res) => res.text())
+            .then((id) => {
+                if (id) {
+                    input.classList.remove('loading')
+                    copy.classList.add('visible')
+                    input.value = shortUrl = `${window.location.origin}/${id}`
+                }
+            })
+            .catch(console.error)
+    }
+
+    const handleCopy = () => {
+        navigator.clipboard.writeText(shortUrl).then(
+            () => {}, // TODO: confirmation
+            (err) => {}
+        )
+    }
+
+    input.addEventListener('input', debounce(handleChange))
+    copy.addEventListener('click', handleCopy)
+}
