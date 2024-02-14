@@ -20,11 +20,13 @@ app.get('/:id', (req, res) => {
     return res.status(404).end()
 })
 
-app.put('/', (req, res) => {
-    let { url, stripQueryParams } = req.body as {
-        url: string
-        stripQueryParams: boolean
-    }
+interface Body {
+    url: string
+    stripQueryParams: boolean
+}
+
+app.put<unknown, unknown, Body>('/', (req, res) => {
+    let { url, stripQueryParams } = req.body
     if (!url) return res.status(400).send('Missing parameter url in body')
     const db = getDB()
     const id = generateId(db)

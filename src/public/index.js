@@ -22,7 +22,7 @@ window.onload = () => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ url, stripQueryParams: false }),
+            body: JSON.stringify({ url, stripQueryParams: true }),
         })
             .then((res) => res.text())
             .then((id) => {

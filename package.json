@@ -10,7 +10,7 @@
         "test": "jest",
         "lint": "eslint",
         "build": "tsc",
-        "dev": "nodemon src/index.ts",
+        "dev": "nodemon --loader ts-node/esm ./src/index.ts",
         "start": "node --loader ts-node/esm ./src/index.ts"
     },
     "dependencies": {
