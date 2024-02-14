@@ -1,3 +1,11 @@
+function isValidUrl(maybeUrl) {
+    try {
+        return Boolean(new URL(maybeUrl).origin)
+    } catch {
+        return false
+    }
+}
+
 window.onload = () => {
     const input = document.querySelector('#input')
     const copy = document.querySelector('.copy')
@@ -15,7 +23,7 @@ window.onload = () => {
 
     const handleChange = () => {
         const url = input.value
-        if (!url) return
+        if (!url || !isValidUrl(url)) return
         if (!input.classList.contains('loading')) input.classList.add('loading')
         fetch('/', {
             method: 'PUT',
