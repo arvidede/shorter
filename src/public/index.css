@@ -27,11 +27,13 @@ body {
 .row {
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 75vw;
-  max-width: 320px;
 }
 
 .input {
+  max-width: 320px;
+  flex: 1;
   position: relative;
   display: flex;
   align-items: center;
@@ -47,7 +49,6 @@ input {
   background-color: inherit;
   outline: solid 1px transparent;
   transition: ease 0.2s;
-  max-width: 50vw;
 }
 
 input:focus {
@@ -138,7 +139,6 @@ input[type='checkbox'] {
 }
 
 label {
-  margin-left: 5px;
   cursor: pointer;
   width: 50px;
   height: 24px;
@@ -147,6 +147,8 @@ label {
   border-radius: 100px;
   position: relative;
   text-indent: calc(100% + 5px);
+  margin-left: 5px;
+  margin-right: 10ch;
   line-height: 24px;
   color: var(--color-text);
   -webkit-user-select: none;
