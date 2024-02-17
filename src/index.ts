@@ -28,15 +28,21 @@ interface Body {
 app.put<unknown, unknown, Body>('/', (req, res) => {
     let { url, stripQueryParams } = req.body
     if (!url) return res.status(400).send('Missing parameter url in body')
-    const db = getDB()
-    const id = generateId(db)
+
     if (stripQueryParams) {
         const parsedUrl = new URL(url)
         url = `${parsedUrl.origin}${parsedUrl.pathname}`
     }
+
+    const db = getDB()
+    const id = generateId(db)
+
     const saved = db.set(id, url)
     if (saved) return res.status(201).send(id)
     return res.status(500).end()
 })
 
-app.listen(3000, () => console.log('Ready on port 3000'))
+app.listen(3000, () => {
+    getDB()
+    console.log('Ready on port 3000')
+})
