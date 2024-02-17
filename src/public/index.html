@@ -6,35 +6,39 @@
         <script src="./index.js"></script>
     </head>
     <body>
-        <div class="input">
-            <input type="text" id="input" placeholder="URL" />
-            <span class="spinner"></span>
-            <button class="copy">
-                <svg
-                    viewBox="0 0 267 282"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <rect
-                        x="10"
-                        y="10"
-                        width="194"
-                        height="214"
-                        rx="20"
-                        stroke="#264653"
-                        stroke-width="20"
-                    />
-                    <rect
-                        x="63"
-                        y="58"
-                        width="194"
-                        height="214"
-                        rx="20"
-                        stroke="#264653"
-                        stroke-width="20"
-                    />
-                </svg>
-            </button>
+        <div class="row">
+            <div class="input">
+                <input type="text" id="input" placeholder="URL" />
+                <span class="spinner"></span>
+                <button class="copy">
+                    <svg
+                        viewBox="0 0 267 282"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <rect
+                            x="10"
+                            y="10"
+                            width="194"
+                            height="214"
+                            rx="20"
+                            stroke="#264653"
+                            stroke-width="20"
+                        />
+                        <rect
+                            x="63"
+                            y="58"
+                            width="194"
+                            height="214"
+                            rx="20"
+                            stroke="#264653"
+                            stroke-width="20"
+                        />
+                    </svg>
+                </button>
+            </div>
+            <input type="checkbox" id="params" />
+            <label for="params">Parameters</label>
         </div>
     </body>
 </html>

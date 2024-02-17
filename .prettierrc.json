@@ -1,5 +1,13 @@
 {
-  "singleQuote": true,
-  "semi": false,
-  "tabWidth": 4
+    "singleQuote": true,
+    "semi": false,
+    "tabWidth": 4,
+    "overrides": [
+        {
+            "files": ["*.css", "*.json"],
+            "options": {
+                "tabWidth": 2
+            }
+        }
+    ]
 }

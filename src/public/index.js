@@ -25,12 +25,13 @@ window.onload = () => {
         const url = input.value
         if (!url || !isValidUrl(url)) return
         if (!input.classList.contains('loading')) input.classList.add('loading')
+        const stripQueryParams = !document.getElementById('params').checked
         fetch('/', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ url, stripQueryParams: true }),
+            body: JSON.stringify({ url, stripQueryParams }),
         })
             .then((res) => res.text())
             .then((id) => {
